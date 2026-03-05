@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-bebas: 'Bebas Neue', sans-serif;
+  --font-barlow: 'Barlow', sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-100;
+    font-family: var(--font-barlow);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-bebas);
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-400 text-surface-950 font-bold px-6 py-2.5 
+           uppercase tracking-widest text-sm
+           hover:bg-brand-300 active:bg-brand-500
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed
+           flex items-center gap-2 justify-center;
+  }
+
+  .btn-secondary {
+    @apply border border-surface-600 text-surface-300 font-semibold px-6 py-2.5
+           uppercase tracking-widest text-sm
+           hover:border-brand-400 hover:text-brand-400
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed
+           flex items-center gap-2 justify-center;
+  }
+
+  .btn-danger {
+    @apply bg-red-700/20 border border-red-700 text-red-400 font-bold px-6 py-2.5 
+           uppercase tracking-widest text-sm
+           hover:bg-red-700/40
+           transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed
+           flex items-center gap-2 justify-center;
+  }
+
+  .input-field {
+    @apply bg-surface-900 border border-surface-700 text-surface-100
+           px-4 py-3 w-full font-medium text-sm
+           focus:outline-none focus:border-brand-400
+           placeholder:text-surface-500
+           transition-colors duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .label {
+    @apply text-surface-400 text-xs uppercase tracking-widest font-semibold mb-1.5 block;
+  }
+
+  .card {
+    @apply bg-surface-900 border border-surface-800 p-6;
+  }
+
+  .badge-available {
+    @apply inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 
+           text-emerald-400 text-xs font-bold uppercase tracking-widest px-2.5 py-1;
+  }
+
+  .badge-rented {
+    @apply inline-flex items-center gap-1.5 bg-brand-400/10 border border-brand-400/30 
+           text-brand-400 text-xs font-bold uppercase tracking-widest px-2.5 py-1;
+  }
+
+  .page-title {
+    @apply text-4xl text-surface-50 leading-none;
+    font-family: var(--font-bebas);
+    letter-spacing: 0.05em;
+  }
+
+  .table-header {
+    @apply text-xs uppercase tracking-widest text-surface-500 font-semibold
+           border-b border-surface-800 pb-3;
+  }
+
+  .table-row {
+    @apply border-b border-surface-800/50 hover:bg-surface-800/30 transition-colors;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f0d09; }
+::-webkit-scrollbar-thumb { background: #5e4f3f; }
+::-webkit-scrollbar-thumb:hover { background: #9a8670; }
+
+/* Diagonal stripe background for header accent */
+.stripe-bg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(234, 179, 8, 0.04) 8px,
+    rgba(234, 179, 8, 0.04) 16px
+  );
+}
